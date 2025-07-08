@@ -1,8 +1,11 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 %% Environment Setup
-clc; clear all; close all; addpath(genpath(pwd));
+clc; clear all; close all;
+configmode = 'temp'; % config mode - 'permament', 'temp', 'pass'
+run config.m % run config
 global pyenvdef
-% pyenvdef = '/opt/homebrew/Caskroom/miniforge/base/bin/python'; % define python environment
-pyenvdef = 'C:\Users\jchapuis\AppData\Local\anaconda3\python.exe'; % define python environment
+pyenvdef = '/opt/homebrew/Caskroom/miniforge/base/bin/python'; % define python environment
+
 %% Settings
 % print resulution 
 layerheight = 0.027; % layer height in mm

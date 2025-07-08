@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 %% General Explanation
 % MATERIAL
 % materal can be given in three modes:

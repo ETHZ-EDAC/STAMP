@@ -38,6 +38,11 @@ The additional package requirements are:
 
 **PyTorch:** Version 2.2.0 or higher.
 
+**Voxelization:**
+The voxelization of the input geometry uses the `Mesh Voxelisation` function with version 1.20.0.0.
+
+Adam A. (2025). Mesh voxelisation (https://www.mathworks.com/matlabcentral/fileexchange/27390-mesh-voxelisation), MATLAB Central File Exchange. Retrieved July 18, 2025.
+
 ## Installation
 
 To run the toolbox, it needs to be added to the MATLAB path. A configuration script `config.m` is provided to automate this step. This config script has three options as shown in all three MAIN files. 

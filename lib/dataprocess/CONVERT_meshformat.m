@@ -1,4 +1,3 @@
-% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [varargout] = CONVERT_meshformat(varargin)
 %CONVERT_meshformat  Convert mesh data from array to faces,vertices format or vice versa
 %==========================================================================

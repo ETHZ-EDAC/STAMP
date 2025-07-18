@@ -39,10 +39,9 @@ The additional package requirements are:
 **PyTorch:** Version 2.2.0 or higher.
 
 **Voxelization:**
-The voxelization of the input geometry uses the `Mesh Voxelisation` with version 1.20.0.0 and `STL to ACIS SAT conversion` function with version 1.9.0.0. These functions are already integrated into the provided code at `lib/dataprocess/VOXELISE.m` and `lib/dataprocess/READ_stl.m`.
+The voxelization of the input geometry uses the `Mesh Voxelisation` with version 1.20.0.0. These functions are already integrated into the provided code at `lib/dataprocess/VOXELISE.m`, `lib/dataprocess/READ_stl.m`, `lib/dataprocess/COMPUTE_mesh_normals.m` and `lib/dataprocess/CONVERT_meshformat.m`.
 
 - Adam A (2025). Mesh voxelisation (https://www.mathworks.com/matlabcentral/fileexchange/27390-mesh-voxelisation), MATLAB Central File Exchange. Retrieved July 18, 2025.
-- Adam A (2025). STL to ACIS SAT conversion (https://www.mathworks.com/matlabcentral/fileexchange/27174-stl-to-acis-sat-conversion), MATLAB Central File Exchange. Retrieved July 18, 2025.
 
 ## Installation
 

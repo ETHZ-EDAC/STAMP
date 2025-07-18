@@ -1,6 +1,3 @@
-<style type="text/css">
-    ol { list-style-type: upper-alpha; }
-</style>
 # Stochastic Two-Phase Analysis & Meshing for Voxelated Polymers (STAMP)
 
 ## Short Description
@@ -22,6 +19,7 @@ Polymer material jetting enables the fabrication of voxelated, multi-material pa
 - `MAIN_Damper.m`: file to run the damper example
 - `MAIN_Dogbone.m`: file to run a basic dogbone example
 - `MAIN_Orthosis.m`: file to run the orthosis example
+- `LIBRARY.m`: contains all operations defined by the user to assign materials
 
 ## Requirements
 
@@ -37,6 +35,7 @@ The additional package requirements are:
 - `MATLAB Statistics and Machine Learning Toolbox`
 
 **Python:** Version 3.11.5 or higher.
+
 **PyTorch:** Version 2.2.0 or higher.
 
 ## Installation
@@ -59,34 +58,143 @@ To run the provided examples, just run the provided MATLAB scripts:
 
 | Group | Name | Size | Unit | Description|
 |----------|:----------:|:----------:|:----------:|----------|
-| Slicing |	*layerheight* |	[1 x 1] | mm |	Layer height. |
-| Slicing |	*dpi* |	[1 x 1] |	dpi |	XY resolution. |
-| Slicing |	*cg_res* | [1 x 3] | mm |	Coarse grid spacing in xyz direction. |
+| Slicing |	*layerheight* |	[1x1] | mm | Layer height. |
+| Slicing |	*dpi* |	[1x1] |	dpi |	XY resolution. |
+| Slicing |	*cg_res* | [1x3] | mm |	Coarse grid spacing in xyz direction. |
 | Geometry |	*name* | - | - |	Name and path of .stl input file. |
 | Geometry |	*type* | - | - |	Provide type ‘solid’ or type ‘shell’. |
-| FE |	*ShellThickness* |	[1 x 1] | mm |	Thickness of elements if type='shell'. |
-| FE |	*ElemSize* |	[1 x 1] | mm |	Target edge length of FE elements. |
+| FE |	*ShellThickness* |	[1x1] | mm |	Thickness of elements if type='shell'. |
+| FE |	*ElemSize* |	[1x1] | mm |	Target edge length of FE elements. |
+| FE |	*HyperelasticBool* | - | Boolean |	Set to use hyperelastic material formulation for viscoelasticity. |
 | Output |	*nameout* | - | - |	Name and path of the PNG output folder, no images are saved if left empty. |
-| Geometry | *rotang_x* |	[1 x 1] | deg |	Rotation fo .stl file around global x-axis [°]. |
-| Geometry | *rotang_y* |	[1 x 1] | deg |	Rotation fo .stl file around global y-axis [°]. |
-| Geometry | *rotang_z* |	[1 x 1] | deg |	Rotation fo .stl file around global z-axis [°]. |
-| Material | *matinfo.void.ID* |	[1 x 1] | - |	Void material ID. |
-| Material | *matinfo.mat1.ID* |	[1 x 1] | - |	Material ID of *mat1*, any number of additional base materials can be defined. |
+| Geometry | *rotang_x* |	[1x1] | deg |	Rotation fo .stl file around global x-axis. |
+| Geometry | *rotang_y* |	[1x1] | deg |	Rotation fo .stl file around global y-axis. |
+| Geometry | *rotang_z* |	[1x1] | deg |	Rotation fo .stl file around global z-axis. |
+| Material | *matinfo.void.ID* |	[1x1] | - |	Void material ID. |
+| Material | *matinfo.mat1.ID* |	[1x1] | - |	Material ID of *mat1*, any number of additional base materials can be defined. |
 | Material | *matinfo.void.Name* | - | - |	Void material name. |
 | Material | *matinfo.mat1.Name* | - | - |	Material name of *mat1*, used for FE material assignment. |
-| Material | *matinfo.void.col* | [1 x 3] | RGB |	Void material color, used for sliced image export and plotting. |
-| Material | *matinfo.mat1.col* | [1 x 3] | RGB |	Material color of *mat1*, used for sliced image export and plotting. |
-| Material | *matinfo.basemat* | [1 x 2n] | - |	Base material or material mixture assigned to the geometry before operations consisting of material ID and volume fraction pairs for *n* materials. |
+| Material | *matinfo.void.col* | [1x3] | RGB |	Void material color, used for sliced image export and plotting. |
+| Material | *matinfo.mat1.col* | [1x3] | RGB |	Material color of *mat1*, used for sliced image export and plotting. |
+| Material | *matinfo.basemat* | [nx2] | - |	Base material or material mixture assigned to the geometry before operations consisting of material ID and volume fraction pairs for *n* materials. |
 
 ## Operations
 
-Operations are used to assign material to the geometry that currently only consists of a base material. The framework consists of four four steps:
-<ol>
-  <li>Determine general settings</li>
+Operations are used to assign material to the geometry that currently only consists of a base material. This process consists of three steps:
+<ol type="A">
   <li>Define operations and operation parameters</li>
   <li>Line up operations in the correct order</li>
   <li>Process operations, save outputs</li>
 </ol>
+
+### A - Define Operations and Operation Parameters
+
+**Overview:** 
+The script is based on applying operations on a matrix containing information about the material at each point. The operations are first defined in a file called `LIBRARY.m` that creates a cell array named *library*. In a second step (B), they are lined up in an *operations* cell array. Define a new operation as a new cell entry in the *library* cell array using the `LIBRARY.m` file. Each cell contains a struct named after the operation and containing the operation-specific entries.
+
+**Example of operation:** 
+```
+library{1}.split.direction = 1;
+library{1}.split.cord      = 12;
+library{1}.split.mat.neg   = matinfo.mat1.ID;
+library{1}.split.mat.pos   = matinfo.mat2.ID;
+```
+
+### B - Line Up Operations in the Correct Order
+
+**Overview:**
+The operations defined in the library are loaded in the cell array called 'operations'. The operations array contains all operations in chronological order. Load the operations by passing the cell content of the library array directly to the operations (e.g., `operations{1} = library{9}`).
+
+### C - Process Operations
+
+**Overview:**
+The user has no influence in this step. The STL file is loaded, the operations are executed.
+
+## Default Operations 
+The default operations are *split*, *gradient*, *coat*, *stencil* and *gensupp*.
+
+### Split
+
+**Function:** Assigns material to the file such that there is a sharp material transition at a defined position.
+
+**Arguments:**
+- `split.direction`: determines the normal direction of the split. Provided as 1,2, and 3,
+                    correspond to the x-, y- and z-axis
+- `split.cord`:      absolute coordinate in the chosen direction where the split should occur
+- `split.mat.neg`:   determines the material ID of all points before the split (negative coordinate direction)
+- `split.mat.pos`:   determines the material ID of all points afterthe split (positive coordinate direction)
+
+**Materials:** The material can be given as a material mixture by providing a mixing table. The mixing table is a n x 2 array, where n are the rows containing all materials to be mixed. The first column contains the material ID's and the second the volume fraction of the material. The volume fractions have to add up to 1.
+   
+### Gradient
+
+**Function:** Adds a material gradient across the geometry in a chosen direction.
+
+**Arguments:**
+ - `gradient.direction`:  determines the direction of the gradient Provided as 1,2, and 3,
+                        correspond to the x-, y- and z-axis
+ - `gradient.cord.start`: absolute coordinate in the chosen direction where the gradient should start
+ - `gradient.cord.end`:   absolute coordinate in the chosen direction where the gradient should end
+ - `gradient.mat.start`:  material ID at the start of the gradient
+ - `gradient.mat.end`:    material ID at the end of the gradient
+ - `gradient.type.name`:  determines the type of the gradient (see below)
+ - `gradient.tyoe.args`:  passes arguments depending on the gradient type (see below)
+
+**Materials:** The material can be given as a material mixture by providing a mixing table. The mixing table is a n x 2 array, where n are the rows containing all materials to be mixed. The first column contains the material ID's and the second the volume fraction of the material. The volume fractions have to add up to 1.
+
+**Gradient Types:**
+ - `linear`: Linear gradient
+   - Arguments passed: NONE
+ - `linsymm`: Gradient peaking in the middle and going to the start material for the end coordinate
+   - Arguments passed: NONE
+ - `power`: Gradient based on the power law 
+   - Arguments passed: exponent of power law
+ - `sigmoid`: sigmoid function determines material fraction
+   - Arguments passed: exponent of the sigmoid function
+
+### Coat
+
+**Function:** Replaces the surface material of a part.
+
+**Arguments:**
+ - `coat.thickness`: thickness of the coating in mm
+ - `coat.mat.out`: material at the surface of the part
+ - `coat.mat.in`: material at the transition of the coating to the internal material
+ - `coat.grad.type`: determines the type of the gradient (see below)
+ - `coat.grad.args`: arguments passed to gradient (see below)
+
+**Materials:** The material can be given as a material mixture by providing a mixing table. The mixing table is a n x 2 array, where n are the rows containing all materials to be mixed. The first column contains the material ID's and the second the volume fraction of the material. The volume fractions have to add up to 1.
+
+**Gradient Types:**
+ - `linear`: Linear gradient
+   - Arguments passed: NONE
+ - `linsymm`: Gradient peaking in the middle and going to the start material for the end coordinate
+   - Arguments passed: NONE
+ - `power`: Gradient based on the power law 
+   - Arguments passed: exponent of power law
+ - `sigmoid`: sigmoid function determines material fraction
+   - Arguments passed: exponent of the sigmoid function
+
+### Stencil
+
+**Function:** Stencils material in the shape of a new .stl file on the existing geometry.
+
+**Arguments:**
+ - `stencil.shape`: path and file name of the stencil geomtry .stl file
+ - `stencil.mat`: material to be stenciled
+ - `stencil.fillvoid`: set TRUE if void material shall be filled, set FALSE if void material shall be ignored
+ - `stencil.blendval`: thickness of linear gradient over stencil boundary in number of coarse grained points into existing geometry
+
+**Materials:** The material can be given as a material mixture by providing a mixing table. The mixing table is a n x 2 array, where n are the rows containing all materials to be mixed. The first column contains the material ID's and the second the volume fraction of the material. The volume fractions have to add up to 1.
+
+### Support
+
+**Function:** Generates support material to ensure all parts are supported.
+
+**Arguments:**
+ - `gensupp.mat`: support material to be used
+
+**Materials:** Should be set to the standard soluble support material for the chosen printing method.
 
 ## Authors
 

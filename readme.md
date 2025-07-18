@@ -39,7 +39,7 @@ The additional package requirements are:
 **PyTorch:** Version 2.2.0 or higher.
 
 **Voxelization:**
-The voxelization of the input geometry uses the `Mesh Voxelisation` function with version 1.20.0.0.
+The voxelization of the input geometry uses the `Mesh Voxelisation` function with version 1.20.0.0. This function is already integrated into the provided code at `lib/dataprocess/VOXELISE.m`.
 
 Adam A. (2025). Mesh voxelisation (https://www.mathworks.com/matlabcentral/fileexchange/27390-mesh-voxelisation), MATLAB Central File Exchange. Retrieved July 18, 2025.
 
@@ -50,7 +50,7 @@ To run the toolbox, it needs to be added to the MATLAB path. A configuration scr
 - `temp`: adds the current toolbox location to the MATLAB path until restart.
 - `pass`: do nothing, user must manually add the toolbox to the MATLAB path.
 
-Additionally, the local Python environement needs to be linked by setting the *pyenvdef* variable in the MAIN file.
+Additionally, the local Python environement needs to be linked by setting the `pyenvdef` variable in the MAIN file.
 
 ## Examples
 

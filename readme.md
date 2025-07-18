@@ -41,7 +41,7 @@ The additional package requirements are:
 **Voxelization:**
 The voxelization of the input geometry uses the `Mesh Voxelisation` function with version 1.20.0.0. This function is already integrated into the provided code at `lib/dataprocess/VOXELISE.m`.
 
-Adam A. (2025). Mesh voxelisation (https://www.mathworks.com/matlabcentral/fileexchange/27390-mesh-voxelisation), MATLAB Central File Exchange. Retrieved July 18, 2025.
+- Adam A. (2025). Mesh voxelisation (https://www.mathworks.com/matlabcentral/fileexchange/27390-mesh-voxelisation), MATLAB Central File Exchange. Retrieved July 18, 2025.
 
 ## Installation
 

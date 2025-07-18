@@ -1,4 +1,5 @@
-function POSTPROCESS_visualize(gridinfo,mat,matinfo,stlfile,type,sliceID,showvoid)
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
+function POSTPROCESS_visualize_slices(gridinfo,mat,matinfo,stlfile,type,sliceID,showvoid)
     % progress report
     fprintf('Visualize slices ... ');
    

@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [mat,matinfo,outargs] = HELPER_operationpipeline(mat,matinfo,gridinfo,operations)
     % output arguments
     outargs = {};

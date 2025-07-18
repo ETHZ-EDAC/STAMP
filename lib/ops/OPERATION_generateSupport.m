@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [mat,matinfo] = OPERATION_generateSupport(gridinfo,mat,matinfo,gensupp)
     % progress report
     fprintf(['Generate support structure ... ']);

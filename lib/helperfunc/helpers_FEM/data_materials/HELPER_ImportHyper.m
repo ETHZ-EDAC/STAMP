@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function DataHyper = HELPER_ImportHyper(filename, dataLines)
 % HELPER_ImportHyper: Import hyperelastic test data from a csv file
 %  DataHyper = HELPER_ImportHyper(FILENAME, DATALINES) reads data from text file

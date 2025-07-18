@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [FEinfo] = HELPER_GenerateMesh(cg_res,gridinfo,mat,matinfo,FEinfo,uniqueMixID,rho,geomName,stlfile,rotation)
     %% Create Nodes and Elements 
     switch FEinfo.ElementType

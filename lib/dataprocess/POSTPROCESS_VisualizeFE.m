@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function POSTPROCESS_VisualizeFE(FEinfo,matinfo,cg_res)
 % progress report
 fprintf('Plot FE mesh ... ');

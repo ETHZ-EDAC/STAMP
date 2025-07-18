@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [FEinfo] = HELPER_GenerateAbaqusIncludeFile(FEinfo)
 %% Output
 % [~,path] = uiputfile('*.inc','Save Parameter File','VoxelFE.inc');

@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function DataProny = HELPER_ImportProny(filename, dataLines)
 % HELPER_ImportProny: Import Prony series data from a csv file
 %  DataHyper = HELPER_ImportProny(FILENAME, DATALINES) reads data from text file

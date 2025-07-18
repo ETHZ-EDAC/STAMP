@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function mat = OPERATION_gradient(gridinfo,mat,matinfo,gradient)
     % progress report
     fprintf(['Create "',gradient.type.name, ...

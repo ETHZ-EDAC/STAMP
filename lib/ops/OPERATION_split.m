@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function mat = OPERATION_split(gridinfo,mat,matinfo,split)
     % progress report
     fprintf(['Split body in coordinate direction ',num2str(split.direction),' at coordinate value ',num2str(split.cord),' ... ']);

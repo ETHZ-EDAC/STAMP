@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function POSTPROCESS_visualize(gridinfo,mat,matinfo,stlfile,type)
     % progress report
     fprintf('Visualize structure ... ');

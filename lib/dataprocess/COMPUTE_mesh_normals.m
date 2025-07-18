@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [coordNORMALS,varargout] = COMPUTE_mesh_normals(meshdataIN,invertYN)
 % COMPUTE_mesh_normals  Calculate the normals for each facet of a triangular mesh
 %==========================================================================

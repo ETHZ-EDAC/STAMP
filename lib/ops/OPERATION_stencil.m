@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function mat = OPERATION_stencil(gridinfo,mat,matinfo,stencil)
     % progress report
     fprintf(['Apply stencil ... ']);

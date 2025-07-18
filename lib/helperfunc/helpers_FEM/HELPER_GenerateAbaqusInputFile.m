@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [FEinfo] = HELPER_GenerateAbaqusInputFile(FEinfo)
 %% Import the required Include file with the Mesh and Relevant Sets
 [FEinfo] = HELPER_GenerateAbaqusIncludeFile(FEinfo);

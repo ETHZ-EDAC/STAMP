@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [gridinfo,mat,matinfo,stlfile] = PREPROCESS_voxelstructure(name,cg_res,matinfo,rotation,type,savemode,elemsize)
     %% Load STL file
     % progress report

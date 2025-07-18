@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function obj = HELPER_ObjPronySeriesTime(x,E_longterm,t_fit,E1,N)
     obj = zeros(size(E1,1),1);
     obj(:,1) = repmat(E_longterm,size(E1,1),1);

@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [FEinfo] = HELPER_MaterialsFE(FEinfo,MasterCurve,uniqueMixID,Tg_mix,rho,mat,matinfo)
 
 %% Load Experimental Materials

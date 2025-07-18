@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function matfrac = HELPER_gradfunction(coord_grad,length_grad,gradtype,args) 
     % exception: gradient length is zero > output 0.5
     if length_grad == 0

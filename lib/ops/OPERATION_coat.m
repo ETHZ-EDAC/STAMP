@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function mat = OPERATION_coat(gridinfo,mat,matinfo,coat)
     % progress report
     if coat.mat.in ==  coat.mat.out

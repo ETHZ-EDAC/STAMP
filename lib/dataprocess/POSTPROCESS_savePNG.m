@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function POSTPROCESS_savePNG(layerheight,dpi,gridinfo,mat,matinfo,FEinfo,stlfile,nameout,smoothbdry,type,addargs)
 if isempty(nameout) == 0
     % progress report

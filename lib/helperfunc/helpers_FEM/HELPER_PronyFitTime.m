@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [PronyParams,N] = HELPER_PronyFitTime(E_t,E_longterm,Tg,C3mix)
 %% Settings
 plottingBool = 0;

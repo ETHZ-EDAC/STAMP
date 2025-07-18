@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 %% MAIN - Switch to voxelizer
 function [gridOUTPUT] = VOXELISE(gridX,gridY,gridZ,meshXYZ,type)
 switch type

@@ -1,3 +1,4 @@
+# ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 import torch
 import torch.nn as nn
 

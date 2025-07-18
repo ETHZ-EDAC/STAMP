@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function [projectedPoints]=HELPER_ProjectPoint2TriMesh(inputs,points)   
     %% Create Geometry
     % read input

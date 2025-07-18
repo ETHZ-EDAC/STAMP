@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function HELPER_GenerateSubroutine(FEinfo)
 
 path = FEinfo.WorkDir;

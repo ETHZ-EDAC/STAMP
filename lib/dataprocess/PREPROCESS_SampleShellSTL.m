@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function stlfile_out = PREPROCESS_SampleShellSTL(stlfile,elemsize)
 % toggle shell creation vizualization
 toggle_viz = 0;

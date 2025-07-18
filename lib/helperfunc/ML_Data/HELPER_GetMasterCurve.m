@@ -1,3 +1,4 @@
+% ©2025 ETH Zurich; D-​MAVT; Engineering Design and Computing
 function varargout = HELPER_GetMasterCurve(varargin)
 
 %% Input Checks

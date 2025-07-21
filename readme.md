@@ -22,6 +22,7 @@ Polymer material jetting enables the fabrication of voxelated, multi-material pa
 - `LIBRARY.m`: contains all operations defined by the user to assign materials
 
 ## Requirements
+The code has been tested on both Windows 11 24H2 and macOS Sequoia 15.5.
 
 **MATLAB:** R2024a or higher.
 
@@ -50,7 +51,7 @@ To run the toolbox, it needs to be added to the MATLAB path. A configuration scr
 - `temp`: adds the current toolbox location to the MATLAB path until restart.
 - `pass`: do nothing, user must manually add the toolbox to the MATLAB path.
 
-Additionally, the local Python environement needs to be linked by setting the `pyenvdef` variable in the MAIN file.
+Additionally, the local Python environement needs to be linked by setting the `pyenvdef` variable in the MAIN file. If all other required packages are installed, this should be the only machine-specific change that needs to be made to run the code. Thus, the install time should not exceed a couple of minutes.
 
 ## Examples
 
@@ -59,7 +60,10 @@ To run the provided examples, just run the provided MATLAB scripts:
 - `MAIN_Dogbone.m`
 - `MAIN_Orthosis.m`
 
+A breakdown of the individual runtimes for each example is provided in the assosciated published article. The expected finite element outputs of the three provided examples can be found in `src/03_FEworkdir`.
+
 ## Problem User Inputs
+The three example files cover the core functionalities of this toolbox, additional information on the user inputs and operations is provided below to enable the transfer to user geometries and designs.
 
 | Group | Name | Size | Unit | Description|
 |----------|:----------:|:----------:|:----------:|----------|

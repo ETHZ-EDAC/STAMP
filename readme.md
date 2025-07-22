@@ -1,3 +1,5 @@
+[<img src="https://raw.githubusercontent.com/ETHZ-EDAC/STAMP/master/logo.png">](https://github.com/ETHZ-EDAC/STAMP)
+
 # Stochastic Two-Phase Analysis & Meshing for Voxelated Polymers (STAMP)
 
 ## Short Description

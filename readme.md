@@ -205,8 +205,6 @@ The default operations are *split*, *gradient*, *coat*, *stencil* and *gensupp*.
 
 **Materials:** Should be set to the standard soluble support material for the chosen printing method.
 
-## Authors
+## Citation
 
-- Marc Wirth
-- Joël N. Chapuis
-- Prof. Dr. Kristina Shea
+When using this package and associated manuscript, please cite: 

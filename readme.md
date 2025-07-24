@@ -208,4 +208,4 @@ The default operations are *split*, *gradient*, *coat*, *stencil* and *gensupp*.
 ## Citation
 
 When using this package and associated manuscript, please cite: 
-- Wirth, M., Chapuis J.N. \& Shea, K., *Inverse Design of Stochastic, Architected Thermo-Viscoelastic Digital Materials*. (2025).
+- Wirth, M., Chapuis J.N. \& Shea, K., *Inverse Design of Stochastic, Voxelated Thermo-Viscoelastic Digital Materials*. (2025).
